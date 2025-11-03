@@ -1,15 +1,13 @@
-import { useState } from "react";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
-import { Router, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Login from "./pages/Login";
 import AddEditBook from "./pages/AddEditBook";
+import "./index.css";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export default function App() {
   return (
     <AuthProvider>
       <Router>
@@ -25,5 +23,3 @@ function App() {
     </AuthProvider>
   );
 }
-
-export default App;

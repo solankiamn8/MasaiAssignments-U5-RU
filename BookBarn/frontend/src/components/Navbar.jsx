@@ -11,7 +11,7 @@ export default function Navbar() {
       <div className="nav-links">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
-        {user.role === "admin" && <Link to="/add">Add Book</Link>}
+        {user?.role === "admin" && <Link to="/add">Add Book</Link>}
       </div>
       <div className="auth-buttons">
         {user ? (
