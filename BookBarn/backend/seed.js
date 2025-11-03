@@ -1,8 +1,10 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const connectDB = require("./config/db");
-const { insertMany } = require("./models/Book");
-const bcrypt = require("bcrypt")(async function seed() {
+const Book = require("./models/Book");
+const User = require("./models/User");
+const bcrypt = require("bcrypt");
+(async function seed() {
   await connectDB(process.env.MONGO_URI);
 
   //create admin user
@@ -163,7 +165,7 @@ const bcrypt = require("bcrypt")(async function seed() {
   ];
 
   await Book.deleteMany({});
-  await insertMany({ sampleBooks });
+  await Book.insertMany(sampleBooks);
   console.log("Sample books inserted");
   process.exit(0);
 })();
